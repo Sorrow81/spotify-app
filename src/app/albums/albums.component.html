@@ -1,0 +1,7 @@
+<h2>Albums Discover</h2>
+<pre>{{ albums | json}}</pre>
+<ul class="albums">
+  <li *ngFor="let album of albums">
+    <span class="badge">{{album.id}}</span> {{album.name}}
+  </li>
+</ul>
