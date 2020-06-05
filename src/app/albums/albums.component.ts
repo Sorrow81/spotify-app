@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AlbumService} from '../service/album.service';
 import {Track} from "../models/track.model";
+import {MessageService} from "../service/message.service";
 
 @Component({
   selector: 'app-albums',
@@ -14,11 +15,17 @@ export class AlbumsComponent implements OnInit {
 
   selectedTrack: Track;
 
-  constructor(private albumService: AlbumService) {
+  constructor(private albumService: AlbumService,
+              private messageService: MessageService) {
   }
 
   ngOnInit(): void {
     this.getTracks();
+  }
+
+  onSelect(track: Track): void {
+    this.selectedTrack = track;
+    this.messageService.add(`AlbumService: Selected track track_number=${track.track_number}`);
   }
 
   getTracks(): void {
@@ -27,9 +34,5 @@ export class AlbumsComponent implements OnInit {
         this.title = data['name'];
         this.tracks = data['tracks']['items'];
       });
-  }
-
-  onSelect(track: Track): void {
-    this.selectedTrack = track;
   }
 }
