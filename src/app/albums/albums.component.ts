@@ -13,19 +13,11 @@ export class AlbumsComponent implements OnInit {
   title: string;
   tracks: Track[];
 
-  selectedTrack: Track;
-
-  constructor(private albumService: AlbumService,
-              private messageService: MessageService) {
+  constructor(private albumService: AlbumService) {
   }
 
   ngOnInit(): void {
     this.getTracks();
-  }
-
-  onSelect(track: Track): void {
-    this.selectedTrack = track;
-    this.messageService.add(`AlbumService: Selected track track_number=${track.track_number}`);
   }
 
   getTracks(): void {
