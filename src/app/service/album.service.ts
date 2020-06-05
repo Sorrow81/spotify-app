@@ -10,7 +10,7 @@ import {Track} from "../models/track.model";
 })
 export class AlbumService {
   private spotifyUrl = 'https://api.spotify.com/v1/albums/0txzXbDfTn3vAdx77iCaXd?market=FR';  // URL to web api
-  private oAuthToken = 'BQAM0XyXPt6tZoI-YpARBnZszmz3TaaOZtXgG0IwVtiWG7ldr84Qa06kTJiO8oeyI5xFJo0K1M6Np6Msyqejt8wixphsgnZsKPOdcpkD1E6r7r2JrvASMvN6-BuOdUAvU2U9PE4pPONN'; // https://developer.spotify.com/console/get-album/?id=0sNOF9WDwhWunNAHPD3Baj&market=FR
+  private oAuthToken = 'BQAtyckW5Tw-CACCBZaeiPb5eWc-E01-VW6zBTtgSiCcd1ouGKVdWXHkt8PY_FS36o5VWqKNL4Ky0lxtDB8PIh1kou33blrBoCHfDEc66iq98CVZzx9-ZtpUjdnb2HXj8sH6iEXALa9h'; // https://developer.spotify.com/console/get-album/?id=0sNOF9WDwhWunNAHPD3Baj&market=FR
 
   constructor(
     private http: HttpClient,

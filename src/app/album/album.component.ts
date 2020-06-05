@@ -5,10 +5,10 @@ import {MessageService} from "../service/message.service";
 
 @Component({
   selector: 'app-albums',
-  templateUrl: './albums.component.html',
-  styleUrls: ['./albums.component.css']
+  templateUrl: './album.component.html',
+  styleUrls: ['./album.component.css']
 })
-export class AlbumsComponent implements OnInit {
+export class AlbumComponent implements OnInit {
 
   title: string;
   tracks: Track[];
