@@ -11,7 +11,7 @@ import { AlbumService }  from '../service/album.service';
   styleUrls: ['./track-detail.component.css']
 })
 export class TrackDetailComponent implements OnInit {
-  @Input() track: Track;
+  track: Track;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +26,10 @@ export class TrackDetailComponent implements OnInit {
   getTrack(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.albumService.getTrack(id)
-      .subscribe(track => this.track = track);
+      .subscribe(track => {this.track = track});
   }
 
+  goBack(): void {
+    this.location.back();
+  }
 }

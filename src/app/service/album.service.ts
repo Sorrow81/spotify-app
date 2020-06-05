@@ -1,10 +1,9 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {Album} from "../models/album.model";
-import { MessageService } from './message.service';
+import {MessageService} from './message.service';
 import {Track} from "../models/track.model";
-import {filter} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root',
@@ -33,6 +32,6 @@ export class AlbumService {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + this.oAuthToken
     });
-    return this.http.get<Track>(this.spotifyUrl, {headers: headers}).pipe(filter(item => item.id === id));
+    return this.http.get<Track>('https://api.spotify.com/v1/tracks/' + id + '?market=FR', {headers: headers});
   }
 }
