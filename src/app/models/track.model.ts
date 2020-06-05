@@ -3,4 +3,5 @@ export class Track {
   name: string;
   preview_url: string;
   duration_ms: number;
+  track_number: number;
 }

@@ -14,7 +14,7 @@ export class AlbumService {
     private http: HttpClient) {
   }
 
-  getAlbums(): Observable<Album[]> {
+  getTracks(): Observable<Album[]> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + this.oAuthToken

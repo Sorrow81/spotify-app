@@ -1,7 +1,11 @@
 <h2>{{ title }}</h2>
-<pre>{{ tracks | json}}</pre>
+<!--<pre>{{ tracks | json}}</pre>-->
 <ul class="albums">
-  <li *ngFor="let track of tracks">
-    <span class="badge">{{track.id}}</span> {{track.name}}
+  <li *ngFor="let track of tracks"
+      [class.selected]="track === selectedTrack"
+      (click)="onSelect(track)">
+    <span class="badge">{{track.track_number}}</span> {{track.name}}
   </li>
 </ul>
+
+<app-track-detail [track]="selectedTrack"></app-track-detail>
