@@ -1,4 +1,4 @@
-import {Artist} from "./artist.model";
+import {Track} from "./track.model";
 
 export class Album {
   id: string;
@@ -6,5 +6,5 @@ export class Album {
   duration_ms: number;
   preview_url: string;
   external_urls: string;
-  artists: Artist[];
+  tracks: Track[];
 }

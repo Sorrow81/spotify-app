@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AlbumService} from '../service/album.service';
-import {Album} from "../models/album.model";
+import {Track} from "../models/track.model";
 
 @Component({
   selector: 'app-albums',
@@ -9,7 +9,8 @@ import {Album} from "../models/album.model";
 })
 export class AlbumsComponent implements OnInit {
 
-  albums: Album[];
+  title: string;
+  tracks: Track[];
 
   constructor(private albumService: AlbumService) {
   }
@@ -21,7 +22,8 @@ export class AlbumsComponent implements OnInit {
   getAlbums(): void {
     this.albumService.getAlbums()
       .subscribe(data => {
-        this.albums = data['tracks']['items'];
+        this.title = data['name'];
+        this.tracks = data['tracks']['items'];
       });
   }
 }

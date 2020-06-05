@@ -1,7 +1,7 @@
-<h2>Albums Discover</h2>
-<pre>{{ albums | json}}</pre>
+<h2>{{ title }}</h2>
+<pre>{{ tracks | json}}</pre>
 <ul class="albums">
-  <li *ngFor="let album of albums">
-    <span class="badge">{{album.id}}</span> {{album.name}}
+  <li *ngFor="let track of tracks">
+    <span class="badge">{{track.id}}</span> {{track.name}}
   </li>
 </ul>
