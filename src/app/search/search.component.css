@@ -1,0 +1,41 @@
+:host {
+
+}
+
+.search-result li {
+  background-color: #424242;
+  cursor: pointer;
+  list-style-type: none;
+}
+
+.search-result li:hover {
+  background-color: #494949;
+}
+
+.search-result li a {
+  color: white;
+  display: block;
+  text-decoration: none;
+  margin: 0 20px;
+}
+
+.search-result li a:hover {
+  color: white;
+}
+
+.search-result li a:active {
+  color: white;
+}
+
+ul.search-result {
+  padding: 0;
+  border: 1px #595959;
+  position: absolute;
+  right: 0;
+  z-index: 9999;
+  font-size: .8rem;
+  margin-right: 0.5em;
+  box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.5);
+  background-color: #424242;
+}
+

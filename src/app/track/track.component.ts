@@ -17,7 +17,8 @@ export class TrackComponent implements OnInit {
     private route: ActivatedRoute,
     private albumService: SpotifyService,
     private location: Location
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.getTrack();
@@ -26,7 +27,9 @@ export class TrackComponent implements OnInit {
   getTrack(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.albumService.getTrack(id)
-      .subscribe(track => {this.track = track});
+      .subscribe(track => {
+        this.track = track
+      });
   }
 
   goBack(): void {

@@ -1,25 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { Observable, Subject } from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 
-import {
-  debounceTime, distinctUntilChanged, map, switchMap
-} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, map, switchMap} from 'rxjs/operators';
 
-import { Album } from '../models/album.model';
-import { SpotifyService } from '../service/spotify.service';
-import { Search } from "../models/search.model";
+import {Album} from '../models/album.model';
+import {SpotifyService} from '../service/spotify.service';
+import {Search} from "../models/search.model";
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: [ './search.component.css' ]
+  styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
   albums$: Observable<Album[]>;
-  private searchTerms = new Subject<string>();
+  searchTerms = new Subject<string>();
 
-  constructor(private spotifyService: SpotifyService) {}
+  constructor(private spotifyService: SpotifyService) {
+  }
 
   // Push a search term into the observable stream.
   search(term: string): void {
