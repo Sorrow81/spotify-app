@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { AlbumComponent } from './album/album.component';
 import { SpotifyService } from "./service/spotify.service";
 import { FormsModule } from "@angular/forms";
-import { TrackDetailComponent } from './track-detail/track-detail.component';
+import { TrackComponent } from './track/track.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -16,7 +16,7 @@ import { SearchComponent } from './search/search.component';
   declarations: [
     AppComponent,
     AlbumComponent,
-    TrackDetailComponent,
+    TrackComponent,
     MessagesComponent,
     DashboardComponent,
     SearchComponent

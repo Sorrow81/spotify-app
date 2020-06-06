@@ -7,7 +7,7 @@
       </div>
     </a>
     <ul>
-      <li *ngFor="let artist of album.artists"><a href="{{ artist.href }}">{{ artist.name }}</a></li>
+      <li *ngFor="let artist of album.artists"><a href="{{ artist.external_urls.spotify }}">{{ artist.name }}</a></li>
     </ul>
   </div>
 </div>

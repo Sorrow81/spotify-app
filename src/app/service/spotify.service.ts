@@ -12,7 +12,7 @@ import {Search} from "../models/search.model";
 })
 export class SpotifyService {
   private spotifyApi = 'https://api.spotify.com/v1';  // URL to web api
-  private oAuthToken = 'BQAryvuqw5wmdjdX94PNtBONQuSAI4R1PzV6VZnk4l1XFtEh1SoZh27xdC7yKV3z2S6i3edB2GAToryCVOM9orUZitTTxuMdJ-FwZAix3ymRvBFktF372cKOCvblOyMzgIzyhDItC59T'; // https://developer.spotify.com/console/get-album/?id=0sNOF9WDwhWunNAHPD3Baj&market=FR
+  private oAuthToken = 'BQBu3NaV7yDDo776FsVX1822LAgo9l1P8h5S9T1Q4tOBMFVZAwSLFrjptsmqhIaRzj9QJGQZO-fgCxsbjBqtgxm6iAg3eVH4Plt4ZkR1N-uN87l93aX3QfMw4gAHNWYLjJJFAG8orA6I'; // https://developer.spotify.com/console/get-album/?id=0sNOF9WDwhWunNAHPD3Baj&market=FR
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -29,7 +29,7 @@ export class SpotifyService {
   getAlbum(id: string): Observable<Album> {
     const URL = `${this.spotifyApi}/albums/${id}?market=FR`;
     return this.http.get<Album>(URL, this.httpOptions).pipe(
-      tap(_ => this.log('fetched tracks')),
+      tap(_ => this.log(`fetched album id=${id}`)),
       catchError(this.handleError<Album>(`getAlbum id=${id}`))
     );
   }
@@ -44,7 +44,6 @@ export class SpotifyService {
 
   getTrack(id: string): Observable<Track> {
     const URL = `${this.spotifyApi}/tracks/${id}?market=FR`;
-    this.messageService.add(`SpotifyService: fetched track id=${id}`);
     return this.http.get<Track>(URL, this.httpOptions).pipe(
       tap(_ => this.log(`fetched track id=${id}`)),
       catchError(this.handleError<Track>(`getTrack id=${id}`))
@@ -61,7 +60,7 @@ export class SpotifyService {
       tap(x => x.albums.items.length ?
         this.log(`found album matching "${term}"`) :
         this.log(`no album matching "${term}"`)),
-      catchError(this.handleError<Search>('search', null))
+      catchError(this.handleError<Search>(`searchAlbum term=${term}`))
     );
   }
 

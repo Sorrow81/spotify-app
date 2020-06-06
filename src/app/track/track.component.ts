@@ -1,16 +1,16 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { Track } from '../models/track.model';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {Track} from '../models/track.model';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
 
-import { SpotifyService }  from '../service/spotify.service';
+import {SpotifyService} from '../service/spotify.service';
 
 @Component({
   selector: 'app-track-detail',
-  templateUrl: './track-detail.component.html',
-  styleUrls: ['./track-detail.component.css']
+  templateUrl: './track.component.html',
+  styleUrls: ['./track.component.css']
 })
-export class TrackDetailComponent implements OnInit {
+export class TrackComponent implements OnInit {
   track: Track;
 
   constructor(
