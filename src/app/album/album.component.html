@@ -1,5 +1,9 @@
 <h2>{{ title }}</h2>
-
+<ul>
+  <li *ngFor="let i of img">
+      <img src="{{i.url}}">
+  </li>
+</ul>
 <ul class="albums">
   <li *ngFor="let track of tracks">
     <a routerLink="/detail/{{track.id}}">

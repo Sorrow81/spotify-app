@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AlbumService} from '../service/album.service';
+import {SpotifyService} from '../service/spotify.service';
 import {Track} from "../models/track.model";
 import {MessageService} from "../service/message.service";
 
@@ -11,9 +11,10 @@ import {MessageService} from "../service/message.service";
 export class AlbumComponent implements OnInit {
 
   title: string;
+  img: [];
   tracks: Track[];
 
-  constructor(private albumService: AlbumService) {
+  constructor(private spotifyService: SpotifyService) {
   }
 
   ngOnInit(): void {
@@ -21,9 +22,10 @@ export class AlbumComponent implements OnInit {
   }
 
   getTracks(): void {
-    this.albumService.getTracks()
+    this.spotifyService.getTracks()
       .subscribe(data => {
         this.title = data['name'];
+        this.img = data['images'];
         this.tracks = data['tracks']['items'];
       });
   }

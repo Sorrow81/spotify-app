@@ -4,12 +4,13 @@ import { HttpClientModule }    from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AlbumComponent } from './album/album.component';
-import { AlbumService } from "./service/album.service";
+import { SpotifyService } from "./service/spotify.service";
 import { FormsModule } from "@angular/forms";
 import { TrackDetailComponent } from './track-detail/track-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AlbumComponent,
     TrackDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FormsModule,
     AppRoutingModule,
   ],
-  providers:[AlbumService],
+  providers:[SpotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Track } from '../models/track.model';
-import { AlbumService } from '../service/album.service';
+import { SpotifyService } from '../service/spotify.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
   title: string;
   tracks: Track[] = [];
 
-  constructor(private albumService: AlbumService) { }
+  constructor(private albumService: SpotifyService) { }
 
   ngOnInit() {
     this.getTracks();

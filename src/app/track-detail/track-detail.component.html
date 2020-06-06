@@ -1,7 +1,7 @@
 <div *ngIf="track">
 
   <h2>{{track.name | uppercase}} Details</h2>
-  <div><audio controls src="{{track.preview_url}}">Your browser does not support the <code>audio</code> element.</audio></div>
+  <div *ngIf="track.preview_url"><audio controls src="{{track.preview_url}}">Your browser does not support the <code>audio</code> element.</audio></div>
   <div><span class="label">Name:</span> {{ track.name }}</div>
   <div><span class="label">Track Number:</span> {{ track.track_number }}</div>
   <div><span class="label">Duration ms:</span> {{ track.duration_ms }}</div>

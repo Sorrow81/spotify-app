@@ -3,8 +3,7 @@ import {Track} from "./track.model";
 export class Album {
   id: string;
   name: string;
-  duration_ms: number;
-  preview_url: string;
-  external_urls: string;
+  release_date: string;
+  total_tracks: number;
   tracks: Track[];
 }

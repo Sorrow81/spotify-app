@@ -3,7 +3,7 @@ import { Track } from '../models/track.model';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { AlbumService }  from '../service/album.service';
+import { SpotifyService }  from '../service/spotify.service';
 
 @Component({
   selector: 'app-track-detail',
@@ -15,7 +15,7 @@ export class TrackDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private albumService: AlbumService,
+    private albumService: SpotifyService,
     private location: Location
   ) {}
 
