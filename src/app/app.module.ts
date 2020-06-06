@@ -20,16 +20,18 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatListModule} from "@angular/material/list";
+import {MsToMinAndSecPipe} from "./pipes/ms-to-min-and-sec.pipe";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AlbumComponent,
-    TrackComponent,
-    MessagesComponent,
-    DashboardComponent,
-    SearchComponent
-  ],
+    declarations: [
+        AppComponent,
+        AlbumComponent,
+        TrackComponent,
+        MessagesComponent,
+        DashboardComponent,
+        SearchComponent,
+        MsToMinAndSecPipe
+    ],
   imports: [
     BrowserModule,
     HttpClientModule,

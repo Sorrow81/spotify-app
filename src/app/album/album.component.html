@@ -1,5 +1,5 @@
-<mat-card>
-  <div fxLayout="row" fxLayoutAlign="center center">
+<mat-card class="album-card">
+  <div class="album-header" fxLayout="row" fxLayoutAlign="start center">
     <img mat-card-image src="{{ album.images[0].url }}"
          alt="{{ album.name }} {{ album.images[0].width }}x{{ album.images[0].height}}">
     <mat-card-header>
@@ -8,11 +8,21 @@
     </mat-card-header>
 
   </div>
-  <mat-list role="list" class="albums">
-    <a mat-list-item routerLink="/track/{{track.id}}" *ngFor="let track of album.tracks.items">{{track.track_number}}
-      . {{track.name}}</a>
-  </mat-list>
-
+  <mat-selection-list #album.tracks.items [multiple]="false">
+    <a routerLink="/track/{{track.id}}" *ngFor="let track of album.tracks.items">
+      <mat-list-option>
+        <div class="track">
+          <button class="track-number">
+            <span class="no-decoration">{{track.track_number}}</span>
+          </button>
+          <span class="no-decoration">{{track.name}}</span>
+          <span class="spacer"></span>
+<!--          <span class="no-decoration">{{track.duration_ms}}</span>-->
+          <span class="no-decoration">{{ track.duration_ms | msToMinAndSec}}</span>
+        </div>
+      </mat-list-option>
+    </a>
+  </mat-selection-list>
 
   <button mat-raised-button color="primary" (click)="goBack()">Go Back</button>
 </mat-card>

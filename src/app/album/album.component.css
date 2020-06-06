@@ -1,6 +1,55 @@
+mat-card {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+mat-card-header {
+  margin: 20px;
+}
+
+.track {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+
+.track-number {
+  color: white;
+  font-weight: bold;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  border: none;
+  border-radius: 50%;
+  background-color: #7b1fa2;
+  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.album-card {
+  max-width: 800px;
+}
+
+.album-header {
+  margin-top: 20px;
+}
+
+.mat-card-title {
+  font-size: 26pt;
+  line-height: 26pt;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.mat-card-subtitle {
+  font-size: 14pt;
+}
 
 img {
-  max-width: 300px;
+  margin: 5px;
+  max-width: 200px;
 }
 
 mat-card-title {
@@ -13,5 +62,13 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+a.mat-card-subtitle:hover {
+  text-decoration: underline !important;
+}
+
+.spacer {
+  flex: 1 1 auto;
 }
