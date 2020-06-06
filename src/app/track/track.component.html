@@ -1,9 +1,13 @@
-<div *ngIf="track">
+<mat-card>
+  <div *ngIf="track">
 
-  <h2>{{track.name | uppercase}} Details</h2>
-  <div *ngIf="track.preview_url"><audio controls src="{{track.preview_url}}">Your browser does not support the <code>audio</code> element.</audio></div>
-  <div><span class="label">Name:</span> {{ track.name }}</div>
-  <div><span class="label">Track Number:</span> {{ track.track_number }}</div>
-  <div><span class="label">Duration ms:</span> {{ track.duration_ms }}</div>
-  <button (click)="goBack()">go back</button>
-</div>
+    <h2>{{track.name | uppercase}} Details</h2>
+    <div *ngIf="track.preview_url">
+      <audio controls src="{{track.preview_url}}">Your browser does not support the <code>audio</code> element.</audio>
+    </div>
+    <p><span class="label">Name:</span> {{ track.name }}</p>
+    <p><span class="label">Track Number:</span> {{ track.track_number }}</p>
+    <p><span class="label">Duration ms:</span> {{ track.duration_ms }}</p>
+    <button mat-raised-button color="primary" (click)="goBack()">Go Back</button>
+  </div>
+</mat-card>

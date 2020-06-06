@@ -1,7 +1,10 @@
-<h1>{{title}}</h1>
-
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<mat-toolbar color="primary">
+  <span>{{title}}</span>
+  <span class="spacer"></span>
+  <a mat-button routerLink="/dashboard">Dashboard</a>
+  <app-search></app-search>
+</mat-toolbar>
+<div class="container">
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
+</div>

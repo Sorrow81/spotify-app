@@ -6,14 +6,15 @@ import {Album} from "../models/album.model";
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: [ './dashboard.component.css' ]
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
   albums: Album[] = [];
 
   constructor(
     private route: ActivatedRoute,
-    private spotifyService: SpotifyService) { }
+    private spotifyService: SpotifyService) {
+  }
 
   ngOnInit() {
     this.getNewReleases();

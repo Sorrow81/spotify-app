@@ -1,14 +1,18 @@
-<h2>{{ album.name }}</h2>
-<ul>
-  <li *ngFor="let img of album.images">
-      <img src="{{ img.url }}" alt="{{ album.name }} {{ img.width }}x{{ img.height}}">
-  </li>
-</ul>
-<ul class="albums">
-  <li *ngFor="let track of album.tracks.items">
-    <a routerLink="/track/{{track.id}}">
-      <span class="badge">{{track.track_number}}</span> {{track.name}}
-    </a>
-  </li>
-</ul>
-<button (click)="goBack()">go back</button>
+<mat-card>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <img mat-card-image src="{{ album.images[0].url }}"
+         alt="{{ album.name }} {{ album.images[0].width }}x{{ album.images[0].height}}">
+    <mat-card-header>
+      <mat-card-title>{{ album.name }}</mat-card-title>
+      <a mat-card-subtitle href="{{ album.artists[0].external_urls.spotify }}">{{ album.artists[0].name}}</a>
+    </mat-card-header>
+
+  </div>
+  <mat-list role="list" class="albums">
+    <a mat-list-item routerLink="/track/{{track.id}}" *ngFor="let track of album.tracks.items">{{track.track_number}}
+      . {{track.name}}</a>
+  </mat-list>
+
+
+  <button mat-raised-button color="primary" (click)="goBack()">Go Back</button>
+</mat-card>

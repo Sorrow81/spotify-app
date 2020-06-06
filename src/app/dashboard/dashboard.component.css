@@ -1,0 +1,22 @@
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.album-card {
+  width: 300px;
+}
+
+mat-card {
+  margin: 1rem;
+}
+
+h2 {
+  font-size: 24pt;
+  margin-top: 3rem;
+  margin-left: 3rem;
+}
