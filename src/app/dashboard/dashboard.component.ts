@@ -9,7 +9,7 @@ import {Album} from "../models/album.model";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  albums: Album[] = [];
+  albums: Album[];
 
   constructor(
     private route: ActivatedRoute,

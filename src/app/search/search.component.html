@@ -1,4 +1,4 @@
-<input matInput #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="Search Album"/>
+<input matInput #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="Search Album"/><i class="gg-search-loading"></i>
 <ul class="search-result">
   <li *ngFor="let album of albums$ | async">
     <a routerLink="/album/{{album.id}}">

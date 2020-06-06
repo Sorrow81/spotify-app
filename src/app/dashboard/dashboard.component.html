@@ -1,5 +1,5 @@
 <h2>New Releases</h2>
-<div fxLayout="row wrap" fxLayoutAlign="space-evenly center">
+<div *ngIf="albums; else oAuthToken" fxLayout="row wrap" fxLayoutAlign="space-evenly center">
   <mat-card *ngFor="let album of albums" class="album-card">
     <mat-card-header>
       <mat-card-title>{{ album.name }}</mat-card-title>
@@ -13,3 +13,9 @@
     </mat-card-actions>
   </mat-card>
 </div>
+<ng-template #oAuthToken>
+  <mat-card>
+    <p>You probably have the invalid oAuth token. Make sure you update it in <code>spotify.service.ts</code>.</p>
+      <p>To generate a token, go to <a href="https://developer.spotify.com/console/get-several-albums/" target="_blank" style="color: #cd5afd; font-weight: bold">this page</a> and generate a token.</p>
+  </mat-card>
+</ng-template>

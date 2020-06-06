@@ -12,7 +12,7 @@ import {Search} from "../models/search.model";
 })
 export class SpotifyService {
   private spotifyApi = 'https://api.spotify.com/v1';  // URL to web api
-  private oAuthToken = 'BQBv9DkeKCdy5Y9kzQsHxflZ_Btl6yBxhMZVOomRQtVz3qrSAY-vNMlMyRrMk3J5nwccEFUXJmZ-X-uzqphUuqFHNrc-Q97cBzRRMZ4XnP1ernDd18XnHtfBqpi9e_D7JMO6Z9cBl0p7'; // https://developer.spotify.com/console/get-album/?id=0sNOF9WDwhWunNAHPD3Baj&market=FR
+  private oAuthToken = 'BQCrEa2Jr8ZrQDixt_WVjwZ92dDf1F8TKOBmsbNG3Ookk0f-UC1mU-oDp6dcmTwt_91YJMZTcWlzBWBEu2w7qqEyJuP7JR4D2xSUe4OldYDCfyzy6LMfi_IZHDPNZRetlNaLQhC4eV6n'; // https://developer.spotify.com/console/get-album/?id=0sNOF9WDwhWunNAHPD3Baj&market=FR
 
   private httpOptions = {
     headers: new HttpHeaders({
