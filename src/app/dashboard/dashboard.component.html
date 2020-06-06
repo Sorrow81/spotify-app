@@ -1,11 +1,15 @@
-<h3>Top Tracks</h3>
+<h3>New Releases</h3>
 <div class="grid grid-pad">
-  <a *ngFor="let track of tracks" class="col-1-4"
-     routerLink="/detail/{{track.id}}">
-    <div class="module hero">
-      <h4>{{track.name}}</h4>
-    </div>
-  </a>
+  <div *ngFor="let album of albums"  class="col-1-4">
+    <a routerLink="/album/{{album.id}}">
+      <div class="module hero">
+        <h4>{{album.name}}</h4>
+      </div>
+    </a>
+    <ul>
+      <li *ngFor="let artist of album.artists"><a href="{{ artist.href }}">{{ artist.name }}</a></li>
+    </ul>
+  </div>
 </div>
 
 <app-search></app-search>

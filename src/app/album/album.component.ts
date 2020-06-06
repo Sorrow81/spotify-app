@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SpotifyService} from '../service/spotify.service';
-import {Track} from "../models/track.model";
-import {MessageService} from "../service/message.service";
+import {ActivatedRoute} from "@angular/router";
+import {Album} from "../models/album.model";
 
 @Component({
   selector: 'app-albums',
@@ -10,23 +10,22 @@ import {MessageService} from "../service/message.service";
 })
 export class AlbumComponent implements OnInit {
 
-  title: string;
-  img: [];
-  tracks: Track[];
+  album: Album;
 
-  constructor(private spotifyService: SpotifyService) {
+  constructor(
+    private route: ActivatedRoute,
+    private spotifyService: SpotifyService) {
   }
 
   ngOnInit(): void {
-    this.getTracks();
+    this.getAlbum();
   }
 
-  getTracks(): void {
-    this.spotifyService.getTracks()
+  getAlbum(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.spotifyService.getAlbum(id)
       .subscribe(data => {
-        this.title = data['name'];
-        this.img = data['images'];
-        this.tracks = data['tracks']['items'];
+        this.album = data;
       });
   }
 }

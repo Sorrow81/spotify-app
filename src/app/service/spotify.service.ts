@@ -4,7 +4,7 @@ import {Observable, of} from 'rxjs';
 import {Album} from "../models/album.model";
 import {MessageService} from './message.service';
 import {Track} from "../models/track.model";
-import {catchError, map, tap} from "rxjs/operators";
+import {catchError, tap} from "rxjs/operators";
 import {Search} from "../models/search.model";
 
 @Injectable({
@@ -13,7 +13,6 @@ import {Search} from "../models/search.model";
 export class SpotifyService {
   private spotifyApi = 'https://api.spotify.com/v1';  // URL to web api
   private oAuthToken = 'BQAryvuqw5wmdjdX94PNtBONQuSAI4R1PzV6VZnk4l1XFtEh1SoZh27xdC7yKV3z2S6i3edB2GAToryCVOM9orUZitTTxuMdJ-FwZAix3ymRvBFktF372cKOCvblOyMzgIzyhDItC59T'; // https://developer.spotify.com/console/get-album/?id=0sNOF9WDwhWunNAHPD3Baj&market=FR
-  private album = '0txzXbDfTn3vAdx77iCaXd';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -27,11 +26,19 @@ export class SpotifyService {
     private messageService: MessageService) {
   }
 
-  getTracks(): Observable<Album[]> {
-    const URL = `${this.spotifyApi}/albums/${this.album}?market=FR`;
-    return this.http.get<Album[]>(URL, this.httpOptions).pipe(
+  getAlbum(id: string): Observable<Album> {
+    const URL = `${this.spotifyApi}/albums/${id}?market=FR`;
+    return this.http.get<Album>(URL, this.httpOptions).pipe(
       tap(_ => this.log('fetched tracks')),
-      catchError(this.handleError<Album[]>('getTracks', []))
+      catchError(this.handleError<Album>(`getAlbum id=${id}`))
+    );
+  }
+
+  getNewReleases(): Observable<Album[]> {
+    const URL = `${this.spotifyApi}/browse/new-releases?country=FR&limit=15`;
+    return this.http.get<Album[]>(URL, this.httpOptions).pipe(
+      tap(_ => this.log('fetched new releases')),
+      catchError(this.handleError<Album[]>(`getNewReleases`, []))
     );
   }
 

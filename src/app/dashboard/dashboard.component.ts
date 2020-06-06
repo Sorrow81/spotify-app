@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Track } from '../models/track.model';
-import { SpotifyService } from '../service/spotify.service';
+import {Component, OnInit} from '@angular/core';
+import {SpotifyService} from '../service/spotify.service';
+import {ActivatedRoute} from "@angular/router";
+import {Album} from "../models/album.model";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,20 +9,20 @@ import { SpotifyService } from '../service/spotify.service';
   styleUrls: [ './dashboard.component.css' ]
 })
 export class DashboardComponent implements OnInit {
-  title: string;
-  tracks: Track[] = [];
+  albums: Album[] = [];
 
-  constructor(private albumService: SpotifyService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private spotifyService: SpotifyService) { }
 
   ngOnInit() {
-    this.getTracks();
+    this.getNewReleases();
   }
 
-  getTracks(): void {
-    this.albumService.getTracks()
+  getNewReleases(): void {
+    this.spotifyService.getNewReleases()
       .subscribe(data => {
-        this.title = data['name'];
-        this.tracks = data['tracks']['items'].slice(1, 5);
+        this.albums = data['albums']['items'];
       });
   }
 }
