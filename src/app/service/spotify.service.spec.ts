@@ -2,7 +2,7 @@ import {TestBed} from '@angular/core/testing';
 
 import {SpotifyService} from './spotify.service';
 
-describe('AlbumService', () => {
+describe('SpotifyService', () => {
   let service: SpotifyService;
 
   beforeEach(() => {

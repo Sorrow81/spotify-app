@@ -15,7 +15,7 @@ export class TrackComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private albumService: SpotifyService,
+    private spotifyService: SpotifyService,
     private location: Location
   ) {
   }
@@ -26,7 +26,7 @@ export class TrackComponent implements OnInit {
 
   getTrack(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.albumService.getTrack(id)
+    this.spotifyService.getTrack(id)
       .subscribe(track => {
         this.track = track
       });

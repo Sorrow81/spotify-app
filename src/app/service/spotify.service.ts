@@ -12,7 +12,7 @@ import {Search} from "../models/search.model";
 })
 export class SpotifyService {
   private spotifyApi = 'https://api.spotify.com/v1';  // URL to web api
-  private oAuthToken = 'BQBzXhjURLmtWahoS6-TpETrj3U8Q21P9y1MdZLY-qrxQq-PED4lv4GNARJTIhjFmuevNAvKskLUvNLbqOZqpcuXgdsCUJPKgpfoF5QKrcFMcUcqe_B6uvrGKDPj_cqYzmNHVuWe5v2v'; // https://developer.spotify.com/console/get-album/?id=0sNOF9WDwhWunNAHPD3Baj&market=FR
+  private oAuthToken = 'BQBv9DkeKCdy5Y9kzQsHxflZ_Btl6yBxhMZVOomRQtVz3qrSAY-vNMlMyRrMk3J5nwccEFUXJmZ-X-uzqphUuqFHNrc-Q97cBzRRMZ4XnP1ernDd18XnHtfBqpi9e_D7JMO6Z9cBl0p7'; // https://developer.spotify.com/console/get-album/?id=0sNOF9WDwhWunNAHPD3Baj&market=FR
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -54,7 +54,7 @@ export class SpotifyService {
     const URL = `${this.spotifyApi}/search/?q=${term}&type=album&market=FR`;
     if (!term.trim()) {
       // if not search term, return null.
-      return of(new Search());
+      return of(null);
     }
     return this.http.get<Search>(URL, this.httpOptions).pipe(
       tap(x => x.albums.items.length ?

@@ -35,6 +35,7 @@ export class SearchComponent implements OnInit {
 
       // switch to new search observable each time the term changes
       switchMap((term: string) => this.spotifyService.searchAlbum(term)),
+
       map((x: Search) => x.albums.items),
     );
 
