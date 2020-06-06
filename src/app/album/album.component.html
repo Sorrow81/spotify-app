@@ -1,15 +1,15 @@
 <mat-card class="album-card">
   <div class="album-header" fxLayout="row" fxLayoutAlign="start center">
-    <img mat-card-image src="{{ album.images[0].url }}"
-         alt="{{ album.name }} {{ album.images[0].width }}x{{ album.images[0].height}}">
+    <img alt="{{ album.name }} {{ album.images[0].width }}x{{ album.images[0].height}}" mat-card-image
+         src="{{ album.images[0].url }}">
     <mat-card-header>
       <mat-card-title>{{ album.name }}</mat-card-title>
-      <a mat-card-subtitle href="{{ album.artists[0].external_urls.spotify }}">{{ album.artists[0].name}}</a>
+      <a href="{{ album.artists[0].external_urls.spotify }}" mat-card-subtitle>{{ album.artists[0].name}}</a>
     </mat-card-header>
 
   </div>
   <mat-selection-list #album.tracks.items [multiple]="false">
-    <a routerLink="/track/{{track.id}}" *ngFor="let track of album.tracks.items">
+    <a *ngFor="let track of album.tracks.items" routerLink="/track/{{track.id}}">
       <mat-list-option>
         <div class="track">
           <button class="track-number">
@@ -17,12 +17,11 @@
           </button>
           <span class="no-decoration">{{track.name}}</span>
           <span class="spacer"></span>
-<!--          <span class="no-decoration">{{track.duration_ms}}</span>-->
           <span class="no-decoration">{{ track.duration_ms | msToMinAndSec}}</span>
         </div>
       </mat-list-option>
     </a>
   </mat-selection-list>
 
-  <button mat-raised-button color="primary" (click)="goBack()">Go Back</button>
+  <button (click)="goBack()" color="primary" mat-raised-button>Go Back</button>
 </mat-card>

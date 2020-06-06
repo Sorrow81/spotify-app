@@ -23,15 +23,15 @@ import {MatListModule} from "@angular/material/list";
 import {MsToMinAndSecPipe} from "./pipes/ms-to-min-and-sec.pipe";
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        AlbumComponent,
-        TrackComponent,
-        MessagesComponent,
-        DashboardComponent,
-        SearchComponent,
-        MsToMinAndSecPipe
-    ],
+  declarations: [
+    AppComponent,
+    AlbumComponent,
+    TrackComponent,
+    MessagesComponent,
+    DashboardComponent,
+    SearchComponent,
+    MsToMinAndSecPipe
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

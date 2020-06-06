@@ -6,16 +6,17 @@
       <mat-card-subtitle><a href="{{ album.artists[0].external_urls.spotify }}">{{ album.artists[0].name }}</a>
       </mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="{{ album.images[0].url }}"
-         alt="{{ album.name }} {{ album.images[1].width }}x{{ album.images[1].height }}">
+    <img alt="{{ album.name }} {{ album.images[1].width }}x{{ album.images[1].height }}" mat-card-image
+         src="{{ album.images[0].url }}">
     <mat-card-actions>
-      <button mat-raised-button color="primary" routerLink="/album/{{album.id}}">VIEW</button>
+      <button color="primary" mat-raised-button routerLink="/album/{{album.id}}">VIEW</button>
     </mat-card-actions>
   </mat-card>
 </div>
 <ng-template #oAuthToken>
   <mat-card>
     <p>You probably have the invalid oAuth token. Make sure you update it in <code>spotify.service.ts</code>.</p>
-      <p>To generate a token, go to <a href="https://developer.spotify.com/console/get-several-albums/" target="_blank" style="color: #cd5afd; font-weight: bold">this page</a> and generate a token.</p>
+    <p>To generate a token, go to <a href="https://developer.spotify.com/console/get-several-albums/" style="color: #cd5afd; font-weight: bold"
+                                     target="_blank">this page</a> and generate a token.</p>
   </mat-card>
 </ng-template>

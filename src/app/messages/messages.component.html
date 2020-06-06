@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-header>
     <h2>Logs
-      <button mat-raised-button color="primary" (click)="messageService.clear()">clear</button>
+      <button (click)="messageService.clear()" color="primary" mat-raised-button>clear</button>
     </h2>
   </mat-card-header>
   <div *ngIf="messageService.messages.length">
